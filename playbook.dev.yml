@@ -4,26 +4,39 @@
     tasks:
       - name: create network
         docker_network: 
-          name: msac-network
+          state: present
+          name: mq-network
+          attachable: yes
 
-      - name: run consul container
+      - name: run kafka container
         docker_container:
-          name: msac-consul
-          image: consul:1.7.3 
+          name: mq-kafka
+          image: zookeeper:3.4.14
           networks:
-            -name: msac-network
+            -name: mq-network
           ports:
             - "6115:8500"
             - "6116:8600"
 
-      - name: run registrator container
-          docker_container:
-            name: msac-registrator
-            image: gliderlabs/registrator:latest
-            networks:
-              -name: msac-network
-            command: ["consul://msac-network:8500"]
-            volumes:
-              - /var/run/docker.sock:/tmp/docker.sock
-              
-      - name: run jenkins container
+      - name: run rabbitmq container
+        docker_container:
+          name: mq-rabbitmq
+          hostname: mq-rabbitmq
+          image: rabbitmq:3.8.3-management-alpine
+          networks:
+            -name: mq-network
+          ports:
+            - "6116:15672"
+          env:
+            RABBITMQ_DEFAULT_USER: "admin"
+            RABBITMQ_DEFAULT_PASS: "password"
+
+      - name: run redis container
+        docker_container:
+          name: mq-redis
+          image: redis:6.0.1-alpine3.11  
+          networks:
+            -name: mq-network
+          ports:
+            - "6117:6379"
+          command: redis-server --appendonly yes
