@@ -5,11 +5,11 @@
 * [ ] 2. Message Queues
   * [X] RabbitMQ
   * [ ] Kafka
-    [Kafka 운영자가 말하는 처음 접하는 Kafka](https://www.popit.kr/kafka-%EC%9A%B4%EC%98%81%EC%9E%90%EA%B0%80-%EB%A7%90%ED%95%98%EB%8A%94-%EC%B2%98%EC%9D%8C-%EC%A0%91%ED%95%98%EB%8A%94-kafka/)
-    [kafka docker connectivity](https://github.com/wurstmeister/kafka-docker/wiki/Connectivity)
-    [Kafka on alpine](https://github.com/blacktop/docker-kafka-alpine)
-    [Kafka on alpine Dockerfile](https://hub.docker.com/r/blacktop/kafka/dockerfile)
-    [Kafka 이해하기](https://medium.com/@umanking/%EC%B9%B4%ED%94%84%EC%B9%B4%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0-%ED%95%98%EA%B8%B0%EC%A0%84%EC%97%90-%EB%A8%BC%EC%A0%80-data%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0%ED%95%B4%EB%B3%B4%EC%9E%90-d2e3ca2f3c2)
+    * [Kafka 운영자가 말하는 처음 접하는 Kafka](https://www.popit.kr/kafka-%EC%9A%B4%EC%98%81%EC%9E%90%EA%B0%80-%EB%A7%90%ED%95%98%EB%8A%94-%EC%B2%98%EC%9D%8C-%EC%A0%91%ED%95%98%EB%8A%94-kafka/)
+    * [kafka docker connectivity](https://github.com/wurstmeister/kafka-docker/wiki/Connectivity)
+    * [Kafka on alpine](https://github.com/blacktop/docker-kafka-alpine)
+    * [Kafka on alpine Dockerfile](https://hub.docker.com/r/blacktop/kafka/dockerfile)
+    * [Kafka 이해하기](https://medium.com/@umanking/%EC%B9%B4%ED%94%84%EC%B9%B4%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0-%ED%95%98%EA%B8%B0%EC%A0%84%EC%97%90-%EB%A8%BC%EC%A0%80-data%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0%ED%95%B4%EB%B3%B4%EC%9E%90-d2e3ca2f3c2)
     * [ ] Zookeeper
   * [X] Redis
 * [ ] 3. Databases
