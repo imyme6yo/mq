@@ -1,0 +1,24 @@
+---
+  - name: create project network
+    hosts: 127.0.0.1
+    tasks:
+      - name: create network
+        docker_network: 
+          name: msac-network
+         
+      - name: run consul container
+        docker_container:
+          name: msac-sd
+          image: consul:1.7.3 
+          ports:
+            - "6115:8500"
+            - "6116:8600"
+
+      - name: run docker registry container
+        docker_container:
+          name: msac-registry
+          image: registry
+          networks:
+            - name: msac-network
+     
+      - name:  run docker swarm master container

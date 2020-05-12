@@ -1,0 +1,5 @@
+[provision]
+localhost
+
+[service_discovery]
+msac-sd:22

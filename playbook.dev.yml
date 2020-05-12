@@ -1,0 +1,29 @@
+---
+  - name: create project network
+    hosts: 127.0.0.1
+    tasks:
+      - name: create network
+        docker_network: 
+          name: msac-network
+
+      - name: run consul container
+        docker_container:
+          name: msac-consul
+          image: consul:1.7.3 
+          networks:
+            -name: msac-network
+          ports:
+            - "6115:8500"
+            - "6116:8600"
+
+      - name: run registrator container
+          docker_container:
+            name: msac-registrator
+            image: gliderlabs/registrator:latest
+            networks:
+              -name: msac-network
+            command: ["consul://msac-network:8500"]
+            volumes:
+              - /var/run/docker.sock:/tmp/docker.sock
+              
+      - name: run jenkins container
