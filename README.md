@@ -15,13 +15,15 @@
 * [ ] 3. Databases
   * [ ] mongdb
 * [ ] 4. Services
-  * [ ] echo-realtime (Go)
-  * [ ] fastapi-realtime (Python)
-  * [ ] folka-realtime (Node)
-  * [ ] vibora-realtime (Python)
+  * [ ] echo (Go)
+  * [ ] fastapi (Python)
+  * [ ] folka (Node)
+  * [ ] vibora (Python)
+  * [ ] spring-boot (Java)
 * [ ] 5. Test
 
 ## References
+* [kafka-docker](https://github.com/wurstmeister/kafka-docker)
 * [Setting up a Docker Swarm cluster using Docker in Docker](https://callistaenterprise.se/blogg/teknik/2017/12/18/docker-in-swarm-mode-on-docker-in-docker/)
 * [Docker 및 Consul을 사용한 서비스 검색 : 1 부](http://www.smartjava.org/content/service-discovery-docker-and-consul-part-1/)
 * [Docker swarm: 도커 스웜 사용후기 > 복수개의 컨테이너 손쉽게 관리하기](https://hidekuma.github.io/docker/swarm/docker-swarm/)

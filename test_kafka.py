@@ -1,10 +1,14 @@
 
 # @AUTHOR: imyme6yo "imyme6yo@gmail.com"
 # @DRAFT: 20200725
-# @REFERENCE: https://kafka-python.readthedocs.io/en/master/usage.html
+# @REFERENCE: 
+#   https://kafka-python.readthedocs.io/en/master/usage.html
+#   https://github.com/wurstmeister/kafka-docker
+# Python modules
+from time import sleep
 from multiprocessing import Process
 
-from time import sleep
+# Kafka modules
 from kafka import KafkaConsumer
 from kafka import KafkaProducer
 from kafka import KafkaClient
@@ -51,7 +55,6 @@ def producer_process(server):
         sleep(2)
         producer.flush()
         
-
 if __name__ == '__main__':
     # client = KafkaClient(api_version=(2, 5, 0), bootstrap_servers=['mq-kafka:9092'])
     # print(client.cluster.brokers())
