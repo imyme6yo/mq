@@ -1,8 +1,9 @@
 # @AUTHOR: imyme6yo "imyme6yo@gmail.com"
 # @DRAFT: 20200511
+# @UPDATE: 20200725
 #!/bin/bash
 DEBUG=$true
-PROJECT="msca"
+PROJECT="mq"
 DIR="code"
 SERVICE="$PROJECT-provision"
 
@@ -19,12 +20,11 @@ echo $SERVICE
 # Set docker container name and image tag
 IMAGE="$SERVICE:dev"
 CONTAINER="$SERVICE-01"
-
-# NETWORK="$PROJECT-network"
+NETWORK="$PROJECT-network"
 
 echo $IMAGE
 echo $CONTAINER
-# echo $NETWORK
+echo $NETWORK
 
 # Clean previous docker images and containers
 # stop docker container
@@ -41,11 +41,12 @@ docker build --force-rm \
   --build-arg DIR=$DIR \
   --build-arg PROJECT=$PROJECT \
   --build-arg SERVICE=$SERVICE \
-  -t $IMAGE -f ./Dockerfile.startup .
+  -t $IMAGE -f ./Dockerfile .
 
 # run docker container
 docker run --rm -it \
   -v /var/run/docker.sock:/var/run/docker.sock:rw \
   -v $(pwd):/$DIR \
+  --network $NETWORK \
   -p 9213:3000 \
   --name $CONTAINER $IMAGE sh /$DIR/start.sh

@@ -34,7 +34,10 @@ RUN rc-update add  docker boot
 RUN pip install --upgrade pip
 RUN pip install cffi
 RUN pip install ansible
-RUN pip install docker-py
+RUN pip install docker
+RUN pip install docker-compose
+RUN pip install kafka-python
+RUN pip install tox
 
 # Workspace
 RUN mkdir ${DIR}

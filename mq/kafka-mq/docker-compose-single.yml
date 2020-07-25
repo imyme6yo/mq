@@ -1,0 +1,28 @@
+version: '2'
+services:
+  zookeeper:
+    image: wurstmeister/zookeeper
+    container_name: mq-zookeeper
+    networks: 
+      - mq-network
+    ports:
+      - "2181:2181"
+  kafka:
+    build: .
+    container_name: mq-kafka
+    networks: 
+      - mq-network
+    ports:
+      - "9092:9092"
+      - "29092:29092"
+    environment:
+      KAFKA_LISTENERS: PLAINTEXT://mq-kafka:9092
+      KAFKA_ZOOKEEPER_CONNECT: mq-zookeeper:2181
+      # KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      # KAFKA_ZOOKEEPER_CONNECT: zookeeper.mq:2181
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+networks:
+  mq-network:
+    external: true

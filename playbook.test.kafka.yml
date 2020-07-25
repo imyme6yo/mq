@@ -1,0 +1,21 @@
+---
+  - name: create project network
+    hosts: 127.0.0.1
+    tasks:
+      - name: create network
+        docker_network: 
+          state: present
+          name: mq-network
+          attachable: yes
+      - name: exit existing services
+        docker_compose:
+          project_src: mq/kafka-mq
+          files:
+            - docker-compose-single.yml
+          state: absent
+      - name: start services
+        docker_compose:
+          project_src: mq/kafka-mq
+          files:
+            - docker-compose-single.yml
+          state: present
